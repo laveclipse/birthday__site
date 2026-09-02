@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f9dce8" />
+  <title>Для тебя 🤍</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background-blur blur-one"></div>
+  <div class="background-blur blur-two"></div>
+
+  <main class="app-shell">
+    <!-- ЭКРАН 1: код -->
+    <section class="screen active" id="lockScreen">
+      <div class="glass-card lock-card">
+        <div class="tiny-label">ТОЛЬКО ДЛЯ ОДНОГО ЧЕЛОВЕКА</div>
+        <h1>Докажи, что это ты</h1>
+        <p class="muted">Введи секретный код, чтобы открыть подарок.</p>
+
+        <div class="pin-dots" id="pinDots" aria-label="Введено цифр"></div>
+
+        <div class="keypad" id="keypad" aria-label="Клавиатура"></div>
+        <button class="text-button" id="clearPin">стереть</button>
+        <p class="error-text" id="pinError"></p>
+      </div>
+    </section>
+
+    <!-- ЭКРАН 2: приветствие -->
+    <section class="screen" id="welcomeScreen">
+      <div class="glass-card welcome-card">
+        <div class="sparkle">✦</div>
+        <p class="tiny-label">ДОСТУП РАЗРЕШЁН</p>
+        <h1 id="welcomeTitle">С днём рождения 🤍</h1>
+        <p id="welcomeText" class="lead"></p>
+        <button class="primary-button" id="startJourney">Начать</button>
+      </div>
+    </section>
+
+    <!-- ЭКРАН 3: главное меню -->
+    <section class="screen" id="homeScreen">
+      <div class="topbar">
+        <div>
+          <p class="tiny-label">ТВОЙ МАЛЕНЬКИЙ АРХИВ</p>
+          <h2 id="homeTitle">Я кое-что для тебя собрала</h2>
+        </div>
+        <button class="icon-button" id="musicButton" title="Музыка">♪</button>
+      </div>
+
+      <div class="chapter-grid" id="chapterGrid"></div>
+
+      <button class="primary-button wide" id="openFinal">Открыть финал</button>
+    </section>
+
+    <!-- ЭКРАН 4: финал -->
+    <section class="screen" id="finalScreen">
+      <div class="glass-card final-card">
+        <p class="tiny-label">ГЛАВА 1 ЗАВЕРШЕНА</p>
+        <h1 id="finalTitle"></h1>
+        <p id="finalText" class="lead"></p>
+        <div class="locked-memory">
+          <span>🔒</span>
+          <div>
+            <strong>Следующая глава</strong>
+            <small>Откроется, когда мы наконец увидимся.</small>
+          </div>
+        </div>
+        <button class="secondary-button" id="backHome">Вернуться назад</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Модальное окно для содержимого разделов -->
+  <div class="modal-backdrop hidden" id="modalBackdrop">
+    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="closeModal" aria-label="Закрыть">×</button>
+      <p class="tiny-label" id="modalEyebrow"></p>
+      <h2 id="modalTitle"></h2>
+      <div id="modalBody"></div>
+    </article>
+  </div>
+
+  <!-- Музыка необязательна: положи файл music.mp3 в assets -->
+  <audio id="backgroundMusic" loop preload="none">
+    <source src="assets/music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
